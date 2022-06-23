@@ -209,7 +209,7 @@ class welcome extends StatelessWidget {
                             }));
                           },
                           child: Text(
-                            'getstart'.tr,
+                            'Get started'.tr,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20.0,

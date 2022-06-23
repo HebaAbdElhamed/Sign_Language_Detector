@@ -5,6 +5,7 @@ import 'main.dart';
 import 'package:get/get.dart';
 import 'aboutus.dart';
 import 'services.dart';
+//import 'dart:io';
 
 class RecorderScreen extends StatefulWidget {
   const RecorderScreen({Key? key}) : super(key: key);
@@ -95,8 +96,8 @@ class _RecorderScreenState extends State<RecorderScreen> {
           imageMean: 127.5,
           imageStd: 127.5,
           rotation: 90,
-          numResults: 2,
-          threshold: 0.1,
+          numResults: 1,
+          threshold: 0.8,
           asynch: true);
       predictions!.forEach((element) {
         setState(() {
@@ -110,6 +111,8 @@ class _RecorderScreenState extends State<RecorderScreen> {
     await Tflite.loadModel(
         model: "assets/model.tflite", labels: "assets/labels.txt");
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +236,7 @@ class _RecorderScreenState extends State<RecorderScreen> {
                   'StartRecoding'.tr,
                   style: TextStyle(
                     color: Color.fromARGB(255, 92, 89, 89),
-                    fontSize: 30,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -251,6 +254,8 @@ class _RecorderScreenState extends State<RecorderScreen> {
                               aspectRatio: cameraController!.value.aspectRatio,
                               child: CameraPreview(cameraController!),
                             ),
+                      height: 280,
+                      width: 300,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         border: Border.all(
@@ -282,7 +287,7 @@ class _RecorderScreenState extends State<RecorderScreen> {
                   'Translation'.tr,
                   style: TextStyle(
                     color: Color.fromARGB(255, 92, 89, 89),
-                    fontSize: 30,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -290,7 +295,7 @@ class _RecorderScreenState extends State<RecorderScreen> {
               const Divider(),
               const SizedBox(height: 10),
               Container(
-                height: 120,
+                height: 70,
                 width: 340,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -349,31 +354,3 @@ class _RecorderScreenState extends State<RecorderScreen> {
   }
 }
 
-
-
-
-// appBar: AppBar(title: Text("Live Sign language Detection App")),
-//       body: Column(
-//         children: [
-//           Padding(
-//             padding: EdgeInsets.all(20),
-//             child: Container(
-//               height: MediaQuery.of(context).size.height * 0.7,
-//               width: MediaQuery.of(context).size.width,
-//               child: !cameraController!.value.isInitialized
-//                   ? Container()
-//                   : AspectRatio(
-//                       aspectRatio: cameraController!.value.aspectRatio,
-//                       child: CameraPreview(cameraController!),
-//                     ),
-//             ),
-//           ),
-//           Text(
-//             output,
-//             style: TextStyle(
-//               fontWeight: FontWeight.bold,
-//               fontSize: 20,
-//             ),
-//           ),
-//         ],
-//       ),

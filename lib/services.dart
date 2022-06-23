@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
+import 'learn.dart';
 import 'recorder_screen.dart';
 import 'aboutus.dart';
 
@@ -277,12 +278,12 @@ class services extends StatelessWidget {
                                   ),
                                   child: MaterialButton(
                                     onPressed: () {
-                                      // Navigator.of(context).push(
-                                      //   // to link two pages with each other
-                                      //     MaterialPageRoute(builder: (v){
-                                      //       return "camera()";
-                                      //     })
-                                      //     );
+                                      Navigator.of(context).push(
+                                        // to link two pages with each other
+                                          MaterialPageRoute(builder: (v){
+                                            return learn();
+                                          })
+                                          );
                                     },
                                     child: Text(
                                       'start2'.tr,
