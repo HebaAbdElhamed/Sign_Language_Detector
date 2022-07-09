@@ -1,6 +1,7 @@
 # new_flutter_project
 
 A new Flutter project.
+flutter sdk 2.2.2
 
 ## Getting Started
 
